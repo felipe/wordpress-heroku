@@ -1,0 +1,37 @@
+{
+  "name": "felipe/wordpress-heroku",
+  "description": "Clean Wordpress installer for Heroku",
+  "homepage": "https://github.com/felipe/wordpress-heroku",
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Felipe Oduardo Sierra",
+          "email": "felipe@solutionnine.com",
+          "homepage": "https://feli.pe",
+          "role": "Developer"
+      }
+  ],
+  "require": {
+      "ext-gd": "*",
+      "php": "~7.0.14",
+      "WordPress/WordPress": "*"
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+          "name": "WordPress/WordPress",
+          "version": "4.7.1",
+          "dist": {
+              "type": "zip",
+              "url": "https://github.com/WordPress/WordPress/archive/4.7.1.zip"
+          }
+      }
+    }
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "./scripts/compile_slug.sh"
+    ]
+  }
+}
