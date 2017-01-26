@@ -55,6 +55,11 @@ heroku config:set \
 	--app "$1" \
 	WP_DB_SSL="ON"
 
+# Add Mailgun
+heroku addons:create \
+	--app "$1" \
+	mailgun:starter
+
 # Add New Relic for metrics
 heroku addons:create \
 	--app "$1" \
@@ -116,7 +121,7 @@ heroku git:remote \
 true && \
 	cd .. && \
 	git checkout -b "$1" && \
-	bin/composer update --ignore-platform-reqs && \
+	scripts/composer update --ignore-platform-reqs && \
 	git add composer.lock && \
 	git commit -m "Initial commit for '$1'" && \
 	git push heroku "$1:master"
