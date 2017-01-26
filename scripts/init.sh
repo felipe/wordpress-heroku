@@ -122,7 +122,7 @@ true && \
 	cd .. && \
 	git checkout -b "$1" && \
 	scripts/composer update --ignore-platform-reqs && \
-	git add composer.lock && \
+	git add composer.lock -f && \
 	git commit -m "Initial commit for '$1'" && \
 	git push heroku "$1:master"
 
